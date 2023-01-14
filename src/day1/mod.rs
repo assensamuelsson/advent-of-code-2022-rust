@@ -1,10 +1,10 @@
 use super::DayResults;
 
-pub fn run(contents: &String) -> Result<DayResults, &'static str> {
-    Ok(DayResults {
+pub fn run(contents: &String) -> DayResults {
+    DayResults {
         part1: part1(contents),
         part2: Some(part2(contents)),
-    })
+    }
 }
 
 fn parse_inventories(contents: &str) -> Vec<Vec<u128>> {

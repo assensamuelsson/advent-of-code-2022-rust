@@ -10,10 +10,7 @@ fn main() {
     });
 
     let start = Instant::now();
-    if let Err(e) = lib::run(&config) {
-        eprintln!("Runtime error: {}", e);
-        process::exit(1);
-    }
+    lib::run(&config);
     let duration = start.elapsed().as_micros();
     
     println!("It took {} us", duration);

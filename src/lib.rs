@@ -20,23 +20,19 @@ impl Config {
     }
 }
 
-pub fn run(config: &Config) -> Result<(), &'static str> {
-    let contents = match fs::read_to_string(&config.file) {
-        Ok(contents) => contents,
-        Err(_) => return Err("Could not read file"),
-    };
+pub fn run(config: &Config) {
+    let contents = fs::read_to_string(&config.file)
+        .expect("Could not read file!");
 
     let results: DayResults = match config.day.as_str() {
-        "day1" => day1::run(&contents)?,
-        _ => return Err("Invalid day"),
+        "day1" => day1::run(&contents),
+        _ => panic!("Day not implemented!"),
     };
 
     println!("Part 1: {}", results.part1);
     if results.part2.is_some() {
         println!("Part 2: {}", results.part2.unwrap());
     }
-
-    Ok(())
 }
 
 pub struct DayResults {
