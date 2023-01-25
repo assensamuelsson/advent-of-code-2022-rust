@@ -3,6 +3,8 @@ use std::time::Instant;
 use advent_of_code_2022_rust as lib;
 
 fn main() {
+    color_eyre::install().unwrap();
+
     let args = env::args().collect();
     let config = lib::Config::build(&args).unwrap_or_else(|err| {
         eprintln!("Error parsing arguments: {}", err);

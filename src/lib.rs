@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 
 use std::fs;
 
@@ -26,6 +27,7 @@ pub fn run(config: &Config) {
 
     let results: DayResults = match config.day.as_str() {
         "day1" => day1::run(&contents),
+        "day2" => day2::run(&contents),
         _ => panic!("Day not implemented!"),
     };
 
